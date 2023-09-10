@@ -1,6 +1,7 @@
 import { loadPokemons } from '../api/apiPokemons'
 import { useQuery } from '@tanstack/react-query'
 import Pokemon from '../../models/Pokemon'
+import { Link } from 'react-router-dom'
 
 function Pokemons() {
   const { data } = useQuery(['pokemon'], loadPokemons)
@@ -11,8 +12,12 @@ function Pokemons() {
       <div>
         <ul>
           {data?.map((pokemon: Pokemon) => (
-            <li key={pokemon.name}>
-              <p>{pokemon.name}</p>
+            <li key={pokemon.name} className="text-center">
+              <Link to={`${pokemon.name}`}>
+                <p>
+                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                </p>
+              </Link>
             </li>
           ))}
         </ul>
