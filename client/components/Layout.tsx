@@ -6,7 +6,7 @@ function Layout() {
       <h1>{'It is my version of Poke Dex🚀 🚀'}</h1>
       <Link to="/">Home</Link>
       <br></br>
-      <Link to="/breeds">Show All Pokemons</Link>
+      <Link to="/pokemons">Show All Pokemons</Link>
       <Outlet />
     </>
   )

@@ -11,14 +11,11 @@ function Pokemons() {
 
   return (
     <>
-      <h1>Pokemons</h1>
+      <h1 className="text-center text-6xl font-bold underline ">Pokemons</h1>
       <div>
         <ul>
           {data?.map((pokemon: pokemon) => (
-            <li
-              key={pokemon.name}
-              style={{ display: 'flex', gap: '3px', alignItems: 'center' }}
-            >
+            <li key={pokemon.name}>
               <p>{pokemon.name}</p>
             </li>
           ))}
