@@ -4,7 +4,7 @@ import Pokemon from '../../models/Pokemon'
 import { Link } from 'react-router-dom'
 
 function Pokemons() {
-  const { data } = useQuery(['pokemon'], loadPokemons)
+  const { data } = useQuery(['pokemons'], loadPokemons)
 
   return (
     <>

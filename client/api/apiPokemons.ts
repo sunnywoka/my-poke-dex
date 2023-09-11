@@ -7,3 +7,9 @@ export async function loadPokemons() {
   const pokemons = res.body.results
   return pokemons
 }
+export async function loadPokemon(name: string) {
+  const res = await request.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+  const pokemon = res.body.abilities
+  console.log(pokemon)
+  return pokemon
+}
