@@ -9,7 +9,6 @@ export async function loadPokemons() {
 }
 export async function loadPokemon(name: string) {
   const res = await request.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-  const pokemon = res.body.abilities
-  console.log(pokemon)
+  const pokemon = res.body
   return pokemon
 }

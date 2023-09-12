@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useLocation } from 'react-router-dom'
 import { loadPokemon } from '../api/apiPokemons'
 import Ability from '../../models/Ability'
+import GameIndice from '../../models/GameIndice'
 
 function SinglePokemon() {
   const { pathname } = useLocation()
@@ -14,19 +15,31 @@ function SinglePokemon() {
         {pokemonName}
       </h1>
       <ul>
-        {data?.map((ability: Ability) => (
+        {data?.abilities.map((pokemonAbility: Ability) => (
           <>
-            {!ability.is_hidden ? (
-              <label htmlFor={ability.ability.name}>Ability: </label>
+            {!pokemonAbility.is_hidden ? (
+              <label htmlFor={pokemonAbility.ability.name}>Ability: </label>
             ) : (
-              <label htmlFor={ability.ability.name}>Hidden ability: </label>
+              <label htmlFor={pokemonAbility.ability.name}>
+                Hidden ability:{' '}
+              </label>
             )}
-            <li key={ability.ability.name}>
-              <p>{ability.ability.name}</p>
+            <li key={pokemonAbility.ability.name}>
+              <p>{pokemonAbility.ability.name}</p>
             </li>
           </>
         ))}
       </ul>
+      <>
+        <label htmlFor="gameVersion">Version: </label>
+        <ul>
+          {data?.game_indices.map((gameIndice: GameIndice) => (
+            <li key={gameIndice.version.name}>
+              <p>{gameIndice.version.name}</p>
+            </li>
+          ))}
+        </ul>
+      </>
     </>
   )
 }
